@@ -1,24 +1,7 @@
 <?php
+include 'functions.php';
     if(isset($_POST['submit'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        if($username && $password) {
-            // echo $username . ' ' . $password;
-        }
-
-        $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-        if($connection) {
-            // echo ' we are connected';
-        } else {
-            die('DATABASE connection failed');
-        };
-
-        $query = "INSERT INTO users(username, password) VALUES ('$username', '$password')";
-        $result = mysqli_query($connection, $query);
-        if(!$result) {
-            die('query failed' . mysqli_error($connection));
-        }
+       createData();
     }
 ?>
 
