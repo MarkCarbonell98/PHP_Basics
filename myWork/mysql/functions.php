@@ -41,6 +41,12 @@ function createData() {
     global $connection;
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+    $hash_format = "$2y$10$";
+    $salt = "iusesomecrazystrings69";
+    $hash_and_salt = $hash_format . $salt;
+    $password = crypt($password, $hash_and_salt);
     $query = "INSERT INTO users(username, password) VALUES ('$username', '$password')";
     $result = mysqli_query($connection, $query);
     if(!$result) {
