@@ -2,11 +2,9 @@
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-
         if($username && $password) {
             echo $username . ' ' . $password;
         }
-
         $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
         if($connection) {
             echo ' we are connected';
@@ -18,7 +16,7 @@
         $query = "SELECT * FROM users";
         $result = mysqli_query($connection, $query);
         if(!$result) {
-            die('query failed' . mysqli_error());
+            die('query failed' . mysqli_error($connection));
         }
     }
 ?>
@@ -33,6 +31,7 @@
     <title>PHP Course</title>
 </head>
 <body>
+<?php include 'navbar.php' ?>
     <div class="container">
     <h1 class="jumbotron jumbotron-fluid">This is the Login_Read</h1>
         <div class="col-sm-6">

@@ -1,24 +1,8 @@
 <?php
+    include 'db.php';
+    include 'functions.php';
     if(isset($_POST['submit'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        if($username && $password) {
-            // echo $username . ' ' . $password;
-        }
-
-        $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-        if($connection) {
-            // echo ' we are connected';
-        } else {
-            die('DATABASE connection failed');
-        };
-
-        $query = "INSERT INTO users(username, password) VALUES ('$username', '$password')";
-        $result = mysqli_query($connection, $query);
-        if(!$result) {
-            die('query failed' . mysqli_error($connection));
-        }
+        deleteRows();
     }
 ?>
 
@@ -32,11 +16,11 @@
     <title>PHP Course</title>
 </head>
 <body>
-    <?php include 'navbar.php' ?>
+<?php include 'navbar.php' ?>
     <div class="container">
-    <h1 class="jumbotron jumbotron-fluid">This is the Login_Create</h1>
+    <h1 class="jumbotron jumbotron-fluid">This is the Login_Delete</h1>
         <div class="col-sm-6">
-            <form action="login_create.php" method="post">
+            <form action="login_delete.php" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" class="form-control">
@@ -45,7 +29,14 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" class="form-control">
                 </div>
-                <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                <div class="form-group">
+                    <select name="id" id="">
+                    <?php
+                        showAllData();
+                    ?>
+                    </select>
+                </div>
+                <input class="btn btn-primary" type="submit" name="submit" value="Delete">
             </form>
         </div>
 

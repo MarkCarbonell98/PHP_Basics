@@ -1,16 +1,8 @@
 <?php
 include 'functions.php';
 if(isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $id = $_POST['id'];
-    $query = "UPDATE users SET username = '$username', password = '$password' WHERE id = $id ";
-    $result = mysqli_query($connection, $query);
-    if(!$result) {
-        die('connection with the server failed ' . mysqli_error($connection));
-    }
+    updateTable();
 }
-        
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +14,7 @@ if(isset($_POST['submit'])) {
     <title>PHP Course</title>
 </head>
 <body>
+<?php include 'navbar.php' ?>
     <div class="container">
     <h1 class="jumbotron jumbotron-fluid">This is the Login_Update</h1>
         <div class="col-sm-6">

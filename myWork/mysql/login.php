@@ -26,6 +26,7 @@
     <title>PHP Course</title>
 </head>
 <body>
+<?php include 'navbar.php' ?>
     <h1 class="jumbotron jumbotron-fluid">This is the Login</h1>
     <div class="container">
         <div class="col-sm-6">
