@@ -24,6 +24,7 @@
                             echo "<li><a href='#'>{$catTitle}</a></li>";
                         }
                     ?>
+
                     <!-- <li>
                         <a href="#">About</a>
                     </li>
