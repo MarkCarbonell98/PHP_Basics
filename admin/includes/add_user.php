@@ -68,8 +68,3 @@
 
         </form>
 
-<!-- Aperiam rerum et accusamus. Ut et aut dicta ipsum officia occaecati quaerat at id. Eos placeat nobis animi excepturi. Cum voluptatem ipsam quos vero. Id esse sequi qui sunt. Recusandae quo et nostrum.
- 
-Provident sed impedit explicabo temporibus officia beatae quia ipsa. Autem nobis ducimus. Quibusdam vitae cumque suscipit recusandae magnam. Sint consequuntur temporibus voluptatem nesciunt velit voluptatem ut qui. Facilis delectus et ipsam.
- 
-Ratione non doloribus. Qui earum eum. Hic voluptatem tenetur et impedit quia qui ut qui. Perspiciatis reiciendis sint temporibus non iusto consequatur occaecati consectetur repudiandae. -->

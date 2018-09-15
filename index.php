@@ -19,30 +19,36 @@
                     $postAuthor = $row['post_author'];
                     $postDate = $row['post_date'];
                     $postImage = $row['post_image'];
+                    $post_status = $row['post_status'];
                     $postContent = substr($row['post_content'], 0 , 200) . '...';
                     // echo "<li><a href='#'>{$postTitle}</a></li>";
-                ?>
-                <h1 class="page-header">
-                Page Heading
-                <small>Secondary Text</small>
-                </h1>
-                <!-- First Blog Post -->
-                <h2>
-                    <a href="./post.php?p_id=<?=$post_id?>"><?= $postTitle?></a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php"><?= $postAuthor?></a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on <?= $postDate?></p>
-                <hr>
-                <a href="./post.php?p_id=<?=$post_id?>">
-                    <img class="img-responsive" src="./images/<?= $postImage; ?>" alt="">
-                </a>
-                <hr>
-                <p><?= $postContent?></p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <hr>
-                <?php }?>
+                    if($post_status == 'published' || $post_status == 'Published') {
+                    ?>
+                    <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                    </h1>
+                    <!-- First Blog Post -->
+                    <h2>
+                        <a href="./post.php?p_id=<?=$post_id?>"><?= $postTitle?></a>
+                    </h2>
+                    <p class="lead">
+                        by <a href="index.php"><?= $postAuthor?></a>
+                    </p>
+                    <p><span class="glyphicon glyphicon-time"></span> Posted on <?= $postDate?></p>
+                    <hr>
+                    <a href="./post.php?p_id=<?=$post_id?>">
+                        <img class="img-responsive" src="./images/<?= $postImage; ?>" alt="">
+                    </a>
+                    <hr>
+                    <p><?= $postContent?></p>
+                    <a class="btn btn-primary" href="./post.php?p_id=<?=$post_id?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <hr>
+                    <?php
+                    // } else {
+                    //     echo '<h1>Sorry, the post you are looking for is not available yet.</h1>';
+                    // }
+                    }}?>
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous">

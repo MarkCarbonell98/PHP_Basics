@@ -11,6 +11,8 @@
                 <th scope="col">Tags</th>
                 <th scope="col">Comments</th>
                 <th scope="col">Date</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody class="table-body">

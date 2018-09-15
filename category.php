@@ -1,12 +1,6 @@
 <?php 
     include './includes/header.php';
 ?>
-<!-- In beatae et dolore minima quibusdam voluptatem et. Qui et voluptatem. Fugit qui vel velit animi doloribus error beatae. Quo a non amet eum dolores dolorem.
- 
-Et reiciendis voluptate. In ut reprehenderit dolor qui animi architecto totam cupiditate. Voluptatem et optio et doloremque optio nobis pariatur voluptatem a. Aut dolore ut. Et nostrum amet minima. Quibusdam est optio corrupti magnam dolore rem atque qui.
- 
-Blanditiis rerum qui culpa voluptatem perferendis accusamus maxime voluptate. Ipsum ipsam dolorem dolores aut consequatur dolorem eaque. Est consequatur nemo quis. Delectus ea ipsum consequuntur voluptas rerum ex. Qui magni sit ea et. -->
-
 <?php 
     include './includes/navigation.php';
 ?>
@@ -49,7 +43,7 @@ Blanditiis rerum qui culpa voluptatem perferendis accusamus maxime voluptate. Ip
                 </a>
                 <hr>
                 <p><?= $postContent?></p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="./post.php?p_id=<?=$post_id?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
                 <?php }?>
                 <!-- Pager -->
