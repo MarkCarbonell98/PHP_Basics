@@ -20,11 +20,9 @@
         <?php
             if(isset($_POST['update_category'])) {
                 $the_cat_title = $_POST['cat_title'];
-                $query_to_update = "UPDATE categories SET cat_title = '{$the_cat_title}' WHERE cat_id = '{$cat_id}'";
+                $query_to_update = "UPDATE categories SET cat_title = '{$the_cat_title}' WHERE cat_id = '{$catId}'";
                 $update_query = mysqli_query($connection, $query_to_update);
-                if(!$update_query) {
-                    die('query failed' . mysqli_error($connection));
-                }
+                confirm($update_query);
             }
         ?>
     </div>
