@@ -1,69 +1,63 @@
 
         <?php 
-            if(isset($_POST['create_post'])) {
-                // echo print_r($_POST);
-                $post_title = $_POST['title'];
-                $post_author = $_POST['author'];
-                $post_category_id = $_POST['category_id'];
-                $post_status = $_POST['status'];
-                $post_image = $_FILES['post_image']['name'];
-                $post_image_temp = $_FILES['post_image']['tmp_name'];
-                $post_tags = $_POST['post_tags'];
-                $post_content = $_POST['post_content'];
-                $post_date = date('d-m-y');
-                // $post_comment_count = 4;
-                move_uploaded_file($post_image_temp, "../images/$post_image");
-                
-                $query = "INSERT INTO posts (post_category_id, post_title,post_author, post_date, post_image, post_content, post_tags, post_status) ";
-                $query .= "VALUES ('{$post_category_id}', '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_status}')";
-                $create_new_post_query = mysqli_query($connection, $query);
-                confirm($create_new_post_query);
-                header('location: ./posts.php');
+            if(isset($_POST['create_user'])) {
+                $username = $_POST['username'];
+                $user_firstname = $_POST['user_firstname'];
+                $user_lastname = $_POST['user_lastname'];
+                $user_email = $_POST['user_email'];
+                $user_password = $_POST['user_password'];
+                $repeat_user_password = $_POST['repeat_user_password'];
+                $user_image = $_FILES['user_image']['name'];
+                $user_image_template = $_FILES['user_image']['tmp_name'];
+                $user_role = $_POST['user_role'];
+                move_uploaded_file($user_image_template, "../images/$user_image");
+
+                if ($user_password === $repeat_user_password ) {
+                    $query = "INSERT INTO users (username, user_password, user_firstname, user_lastname, user_email, user_image, user_role, user_date_created) ";
+                    $query .= "VALUES ('$username', '$user_password', '$user_firstname', '$user_lastname', '$user_email', '$user_image', '$user_role', now())";
+                    $create_user_query = mysqli_query($connection, $query);
+                    confirm($create_user_query);
+                    header('location: users.php?source=add_user');
+
+                }
             }
         ?>
         
         <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="title">Post Title</label>
-                <input class="form-control" name="title" type="text">
+                <label for="username">Username</label>
+                <input class="form-control" name="username" type="text">
             </div>
             <div class="form-group">
-                <label for="post_author">Post Author</label>
-                <input class="form-control" name="author" type="text">
-            </div>
-            <label for="post_cat" class="control-label">Post Category</label>
-                <select name="category_id" id="post_cat" class="form-control">
-                <?php    
-                    $query = "SELECT * FROM categories";
-                    $select_categories = mysqli_query($connection, $query);
-                    confirm($select_categories);
-                    while($row = mysqli_fetch_assoc($select_categories)) {
-                        $catTitle = $row['cat_title'];
-                        $catId = $row['cat_id'];
-                        echo "<option value='{$catId}'>";
-                        echo $catTitle;
-                        echo '</option>';
-                    }
-                ?>
-                </select>         
-            <div class="form-group">
-                <label for="post_status">Post Status</label>
-                <input class="form-control" name="status" type="text">
+                <label for="user_firstname">First Name</label>
+                <input class="form-control" name="user_firstname" type="text">
             </div>
             <div class="form-group">
-                <label for="post_image">Post Image</label>
-                <input name="post_image" type="file" class="form-control-file">
+                <label for="user_lastname" class="control-label">Last Name</label>
+                <input class="form-control" name="user_lastname" type="text">
             </div>
             <div class="form-group">
-                <label for="post_tags">Post Tags</label>
-                <input class="form-control" name="post_tags">
+                <label for="user_email">Email</label>
+                <input class="form-control" name="user_email" type="text">
             </div>
             <div class="form-group">
-                <laber for="post_content"></laber>
-                <textarea name="post_content" id="" cols="30" rows="10" id="" class="form-control"></textarea>
+                <label for="user_password">User Password</label>
+                <input class="form-control" name="user_password" type="password">
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" name="create_post" value="Publish Post">
+                <label for="repeat_user_password">Repeat User Password</label>
+                <input class="form-control" name="repeat_user_password" type="password">
+            </div>
+            <div class="form-group">
+                <label for="user_image">User Image</label>
+                <input name="user_image" type="file" class="form-control-file">
+            </div>
+            <div class="form-group">
+                <label for="post_tags">User Role</label>
+                <input class="form-control" name="user_role">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" name="create_user" value="Create User">
             </div>
 
         </form>
