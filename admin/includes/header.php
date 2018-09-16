@@ -4,12 +4,10 @@
 
 
 <?php 
-    // session_start();
-    // if(isset($_SESSION['user_role'])) {
-    //     header("location: ../../../index.php");
-    // } else {
-    //     header("location: ../index.php");
-    // }
+    session_start();
+    if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'Admin') {
+        header("location: ../index.php");
+    }
 
 ?>
 
@@ -23,9 +21,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <title>SB Admin - Bootstrap Admin Template</title>
-
+    <title>Admin - Marcos Carbonell CMS</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 

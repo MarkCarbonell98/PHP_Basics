@@ -18,7 +18,6 @@
                     $create_user_query = mysqli_query($connection, $query);
                     confirm($create_user_query);
                     header('location: users.php?source=add_user');
-
                 }
             }
         ?>
@@ -53,8 +52,11 @@
                 <input name="user_image" type="file" class="form-control-file">
             </div>
             <div class="form-group">
-                <label for="post_tags">User Role</label>
-                <input class="form-control" name="user_role">
+                <label for="user_role">User Role</label>
+                <select name="user_role" id="" class="form-control">
+                    <option value="Subscriber">Subscriber</option>
+                    <option value="Admin">Admin</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" name="create_user" value="Create User">

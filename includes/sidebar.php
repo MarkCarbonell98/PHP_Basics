@@ -22,7 +22,7 @@
     <?php 
         $query = "SELECT * FROM categories LIMIT 10";
         $select_all_categories_sidebar = mysqli_query($connection, $query);
-        ?>
+    ?>
     <h4>Blog Categories</h4>
     <div class="row">
         <div class="col-lg-6">
@@ -33,10 +33,28 @@
                     $catId = $row['cat_id'];
                     echo "<li><a href='category.php?category={$catId}'>{$catTitle}</a></li>";
                 }
-            ?>
+                ?>
             </ul>
         </div>
     </div>
 </div>
-    <!-- side widget  -->
-    <?php include 'widget.php';?>
+<!-- login -->
+<div class="well">
+    <h4>Login</h4>
+    <form action="./includes/login.php" method="post">
+    <div class="form-group">
+        <input name="username" type="text" class="form-control" placeholder="Enter Username">
+    </div>
+    <div class="input-group">
+        <input name="user_password" type="password" class="form-control" placeholder="Enter password">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" name="login" type="submit">
+                Login
+            </button>
+        </span>
+    </div>
+    <!-- /.input-group -->
+    </form>
+</div>
+<!-- side widget  -->
+<?php include 'widget.php';?>
